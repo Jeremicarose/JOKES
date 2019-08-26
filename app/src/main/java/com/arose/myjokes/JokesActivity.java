@@ -20,6 +20,8 @@ public class JokesActivity extends AppCompatActivity {
     @BindView(R.id.locationTextView) TextView mLocationTextView;
     @BindView(R.id.listView) ListView mListView;
 
+    private String[] jokes = new String[] {"" };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
