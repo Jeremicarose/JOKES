@@ -19,7 +19,11 @@ import butterknife.ButterKnife;
 public class JokesActivity extends AppCompatActivity {
     @BindView(R.id.listView) ListView mListView;
 
-    private String[] jokes = new String[] {"love" };
+    private String[] jokes = new String[] {"I've never actually been caught smoking weed.\n" +
+            "But I'm pretty sure my parents know sober people don't give goodnight handshakes.", "Why did Jeffery Dahmer have a blender on his front porch?\n" +
+            "So he could greet you with a handshake.", "How do two lawyers greet each other?\n" +
+            "With a firm handshake.", "What do cannibals and politicians have in common?\n" +
+            "They both enjoy handshakes." };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,7 @@ public class JokesActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String restaurant = ((TextView)view).getText().toString();joke;
+                String joke = ((TextView)view).getText().toString();
                 Toast.makeText(JokesActivity.this, joke, Toast.LENGTH_LONG).show();
 
             }
