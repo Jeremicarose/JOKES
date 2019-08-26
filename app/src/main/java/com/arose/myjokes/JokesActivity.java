@@ -3,6 +3,7 @@ package com.arose.myjokes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.content.Intent;
 
 public class JokesActivity extends AppCompatActivity {
 
