@@ -12,7 +12,8 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class
+MainActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.findJokesButton) Button mFindJokesButton;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
     @BindView(R.id.locationEditText) EditText mLocationEditText;

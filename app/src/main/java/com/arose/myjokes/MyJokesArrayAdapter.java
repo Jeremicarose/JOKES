@@ -6,7 +6,7 @@ import android.widget.ArrayAdapter;
 
 public class MyJokesArrayAdapter extends ArrayAdapter {
     private Context mContext;
-    Private string[] mJokes;
+    private String[] mJokes;
 
 
     public MyJokesArrayAdapter(Context mContext, int resource, String[] mRestaurants, String[] mCuisines) {
@@ -18,9 +18,9 @@ public class MyJokesArrayAdapter extends ArrayAdapter {
 
     @Override
     public Object getItem(int position) {
-        String restaurant = mJokes[position];
+        String joke = mJokes[position];
 
-        return String.format("%s \nServes great: %s", restaurant, cuisine);
+        return String.format("%s \nServes great: %s", joke);
     }
 
     @Override

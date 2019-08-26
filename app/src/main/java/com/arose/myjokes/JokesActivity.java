@@ -17,10 +17,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class JokesActivity extends AppCompatActivity {
-    @BindView(R.id.locationTextView) TextView mLocationTextView;
     @BindView(R.id.listView) ListView mListView;
 
-    private String[] jokes = new String[] {"" };
+    private String[] jokes = new String[] {"love" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +33,13 @@ public class JokesActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String restaurant = ((TextView)view).getText().toString();
-                Toast.makeText(JokesActivity.this, restaurant, Toast.LENGTH_LONG).show();
+                String restaurant = ((TextView)view).getText().toString();joke;
+                Toast.makeText(JokesActivity.this, joke, Toast.LENGTH_LONG).show();
 
             }
         });
 
-        Intent intent = getIntent();
-        String personality = intent.getStringExtra("personality");
-        mLocationTextView.setText(": " + personality);
+
 
 
     }
