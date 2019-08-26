@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,8 +19,6 @@ import butterknife.ButterKnife;
 public class JokesActivity extends AppCompatActivity {
     @BindView(R.id.locationTextView) TextView mLocationTextView;
     @BindView(R.id.listView) ListView mListView;
-    @BindView(R.id.locationEditText) EditText mLocationEditText;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +34,14 @@ public class JokesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String restaurant = ((TextView)view).getText().toString();
                 Toast.makeText(JokesActivity.this, restaurant, Toast.LENGTH_LONG).show();
-                Log.v("RestaurantsActivity", "In the onItemClickListener!");
+
             }
         });
+
+        Intent intent = getIntent();
+        String personality = intent.getStringExtra("personality");
+        mLocationTextView.setText(": " + personality);
+
+
     }
 }
