@@ -24,14 +24,15 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/jek" />
+
     <Button
+        android:id="@+id/findRestaurantsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Jokes"
-        android:id="@+id/findRestaurantsButton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="110dp"
         android:background="@color/colorAccent"
+        android:text="Jokes"
         android:textColor="@color/colorTextIcons" />
 
 
