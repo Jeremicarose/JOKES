@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,5 +24,18 @@ public class JokesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jokes);
+        ButterKnife.bind(this);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, jokes);
+        MyJokesArrayAdapter adapter1= new MyJokesArrayAdapter(this, android.R.layout.simple_list_item_1, jokes,);
+        mListView.setAdapter(adapter);
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String restaurant = ((TextView)view).getText().toString();
+                Toast.makeText(JokesActivity.this, restaurant, Toast.LENGTH_LONG).show();
+                Log.v("RestaurantsActivity", "In the onItemClickListener!");
+            }
+        });
     }
 }
