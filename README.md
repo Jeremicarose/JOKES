@@ -11,8 +11,6 @@ This app allow user to see, share and post funny jokes
 * Clone the project
 ```
 
-
-
 ## Technologies
   * Android
 
