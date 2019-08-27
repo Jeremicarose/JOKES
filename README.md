@@ -1,7 +1,7 @@
 # JOKES
 This app allow user to see, share and post funny jokes 
 
-##Author
+## Author
   Jeremic Arose.
 
 
