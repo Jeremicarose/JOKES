@@ -18,10 +18,15 @@
         android:textStyle="bold"
         android:id="@+id/appNameTextView"/>
     ​
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
         android:scaleType="centerCrop"
         android:src="@drawable/jek" />
 
@@ -30,14 +35,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="110dp"
-        android:background="@color/colorAccent"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorPrimary"
         android:text="Jokes"
         android:textColor="@color/colorTextIcons" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Find Restaurants"
+        android:text="Best Quotes"
         android:id="@+id/locationEditText"
         android:background="@color/colorTextIcons"
         android:layout_above="@id/findJokesButton"
