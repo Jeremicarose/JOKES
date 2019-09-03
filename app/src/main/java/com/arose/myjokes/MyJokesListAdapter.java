@@ -4,12 +4,12 @@ package com.arose.myjokes;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
-public class MyJokesArrayAdapter extends ArrayAdapter {
+public class MyJokesListAdapter extends ArrayAdapter {
     private Context mContext;
     private String[] mJokes;
 
 
-    public MyJokesArrayAdapter(Context mContext, int resource, String[] mRestaurants, String[] mCuisines) {
+    public MyJokesListAdapter(Context mContext, int resource, String[] mRestaurants, String[] mCuisines) {
         super(mContext, resource);
         this.mContext = mContext;
         this.mJokes = mJokes;

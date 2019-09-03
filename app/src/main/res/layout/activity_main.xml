@@ -31,7 +31,7 @@
         android:src="@drawable/jek" />
 
     <Button
-        android:id="@+id/findJokesButton"
+        android:id="@+id/btnJoke"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -45,7 +45,7 @@
         android:text="Best Jokes"
         android:id="@+id/locationEditText"
         android:background="@color/colorTextIcons"
-        android:layout_above="@id/findJokesButton"
+        android:layout_above="@id/btnJoke"
         android:layout_marginBottom="10dp"
         android:padding="5dp"
         android:hint="Enter Zip Code"

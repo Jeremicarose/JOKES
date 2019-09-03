@@ -2,18 +2,23 @@ package com.arose.myjokes;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.solver.widgets.Helper;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.gson.Gson;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,39 +27,40 @@ public class JokesActivity extends AppCompatActivity {
     @BindView(R.id.locationTextView) TextView mLocationTextView;
     @BindView(R.id.listView) ListView mListView;
 
-    private String[] jokes = new String[] {"I've never actually been caught smoking weed.\n" +
-            "But I'm pretty sure my parents know sober people don't give goodnight handshakes.", "Why did Jeffery Dahmer have a blender on his front porch?\n" +
-            "So he could greet you with a handshake.", "How do two lawyers greet each other?\n" +
-            "With a firm handshake.", "What do cannibals and politicians have in common?\n" +
-            "They both enjoy handshakes.", "A woman gets on a bus with her baby. The driver says: \"Ugh, that's the ugliest baby I've ever seen.\"\n" +
-            "\n" +
-            "The woman walks to the rear of the bus and sits down, fuming. She says to the man next to her: \"The driver just insulted me.\"\n" +
-            "\n" +
-            "The man says: \"You go up there and tell him off. Go on, I'll hold your monkey for you.\"\n" +
-            "The teacher said to his class one day, \"Please stand up, anyone who thinks they're stupid.\"\n" +
-            "\n" +
-            "Nobody stood up so the teacher said, \"I'm sure there are some stupid students in this class!\"\n" +
-            "\n" +
-            "At this point Little Johnny stood up.\n" +
-            "\n" +
-            "The teacher said, \"Oh Johnny! So you think you're stupid then?\"\n" +
-            "\n" +
-            "Little Johnny replied, \"No, I just felt bad that you were standing up on your own.\"" };
-    private String[] cuisines = new String[] {"jokes", };
+    private String API_URL = "http://api.icndb.com/jokes/random";
+    Button btnJoke;
+    BubbleTextView txtJoke;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jokes);
-        ButterKnife.bind(this);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, jokes);
-        MyJokesArrayAdapter adapter1= new MyJokesArrayAdapter(this, android.R.layout.simple_list_item_1, jokes, cuisines);
-        mListView.setAdapter(adapter);
-
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       txtJoke = (BubbleTextView)findViewById(R.id.txtJoke);
+       btnJoke = (Button)findViewById(R.id.btnJoke);
+        btnJoke.setOnItemClickListener(new View.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String restaurant = ((TextView)view).getText().toString();
-                Toast.makeText(JokesActivity.this, restaurant, Toast.LENGTH_LONG).show();
+            public void onClick (View V){
+                AsyncTask<String,Void,String>asyncTask=new AsyncTask<String, Void, String>( ) {
+                    progressDialog mDialog = new progressDialog(JokesActivity.this);
+                    asynctask.execute();
+                }
+            }
+            @Override
+            protected void onPreExecute(){
+                mDialog.setTitle("please wait ...");
+                mDialog.show();
+            }
+            @Override
+            protected String doInBackground(String...paramas){
+                Helper helper = new Helper();
+                return helper.getHTTPData(API_URL)
+            }
+            @Override
+            protected void onPostExecute(String s){
+                mDialog.dismiss();
+                chuckNorris chuckNorris = new Gson().fromJson(s,chuckNorris.class);
+                txtJoke.setText (chuckNorris.value .joke);
+                if(txtJoke.getVisibility()==view.INVISIBLE);
+                txtJoke.setVisibilty(View.VISIBLE);
 
             }
         });
