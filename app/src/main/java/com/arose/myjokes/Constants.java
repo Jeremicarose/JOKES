@@ -1,4 +1,6 @@
-package com.arose.myrestaurants;
+package com.arose.myjokes;
+
+import com.arose.myrestaurants.BuildConfig;
 
 public class Constants {
     public static final String BEST_TOKEN = BuildConfig.BEST_TOKEN;

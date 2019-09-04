@@ -1,16 +1,13 @@
-package com.arose.myrestaurants.ui;
-
+package com.arose.myjokes.ui;
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.arose.myjokes.adapter.JokesListAdapter;
+import com.arose.myjokes.models.Joke;
+import com.arose.myjokes.services.BestService;
 import com.arose.myrestaurants.R;
-import com.arose.myrestaurants.adapter.JokesListAdapter;
-import com.arose.myrestaurants.models.Joke;
-import com.arose.myrestaurants.services.BestService;
 
 import java.io.IOException;
 import java.util.ArrayList;

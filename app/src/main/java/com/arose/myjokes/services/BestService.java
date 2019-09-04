@@ -1,17 +1,19 @@
-package com.arose.myrestaurants.services;
+package com.arose.myjokes.services;
 
 //import android.telecom.Call;
 
-import com.arose.myrestaurants.Constants;
-import com.arose.myrestaurants.models.Joke;
+import android.util.Xml;
+
+import com.arose.myjokes.Constants;
+import com.arose.myjokes.models.Joke;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.XML;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.XMLFormatter;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -47,7 +49,7 @@ public class BestService {
         try {
 
             String xmlData = response.body().string();
-            JSONObject bestJSON = XML.toJSONObject(xmlData);
+            JSONObject bestJSON = Xml.toJSONObject(xmlData);
             JSONArray jokesJSON = bestJSON.getJSONArray("jokes");
 
             if (response.isSuccessful( )) {

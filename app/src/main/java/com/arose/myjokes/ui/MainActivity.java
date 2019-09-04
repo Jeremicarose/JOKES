@@ -1,4 +1,4 @@
-package com.arose.myrestaurants.ui;
+package com.arose.myjokes.ui;
 
 
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+
 
 import com.arose.myrestaurants.R;
 
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         String location = mLocationEditText.getText().toString();
-        Intent intent = new Intent(MainActivity.this, JokesListActivity.class);
+        Intent intent = new Intent(MainActivity.this, com.arose.myjokes.ui.JokesListActivity.class);
         intent.putExtra("location", location);
         startActivity(intent);
     }

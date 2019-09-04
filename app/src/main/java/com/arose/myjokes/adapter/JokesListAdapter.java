@@ -1,4 +1,4 @@
-package com.arose.myrestaurants.adapter;
+package com.arose.myjokes.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,14 +8,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.arose.myjokes.models.Joke;
 import com.arose.myrestaurants.R;
-import com.arose.myrestaurants.models.Contents;
-import com.arose.myrestaurants.models.Joke;
-import com.arose.myrestaurants.models.Joke_;
-import com.arose.myrestaurants.models.Joke__;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,7 +27,7 @@ public class JokesListAdapter extends RecyclerView.Adapter<JokesListAdapter.Joke
 
     @Override
     public JokesListAdapter.JokeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.joke_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.jokes_list_item, parent, false);
         JokeViewHolder viewHolder = new JokeViewHolder(view);
         return viewHolder;
     }
@@ -60,9 +56,9 @@ public class JokesListAdapter extends RecyclerView.Adapter<JokesListAdapter.Joke
         }
 
         public void bindJoke(Joke joke) {
-            mNameTextView.setText(joke.getName());
-            mCategoryTextView.setText(joke.getCategories().get(0));
-            mRatingTextView.setText("Rating: " + joke.getRating() + "/5");
+            mNameTextView.setText(joke.getmJoke());
+            mCategoryTextView.setText(joke.getmCategories().get(0));
+
         }
     }
 }
