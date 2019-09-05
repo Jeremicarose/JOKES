@@ -1,6 +1,5 @@
 package com.arose.myjokes.services;
 
-//import android.telecom.Call;
 
 import android.util.Xml;
 
@@ -10,10 +9,11 @@ import com.arose.myjokes.models.Joke;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.XML;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.XMLFormatter;
+
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -44,17 +44,17 @@ public class BestService {
         call.enqueue(callback);
     }
 
-    public ArrayList<Joke> processResults(Response response) {
-        ArrayList<Joke> jokes = new ArrayList<>( );
-        try {
+    public ArrayList<Joke> processResults(Response response){
+        ArrayList<Joke> jokes = new ArrayList<>();
+        try{
 
             String xmlData = response.body().string();
-            JSONObject bestJSON = Xml.toJSONObject(xmlData);
-            JSONArray jokesJSON = bestJSON.getJSONArray("jokes");
+            JSONObject jokesJSON = XML.toJSONObject(xmlData);
+            JSONArray namesJSON = jokesJSON.getJSONArray("names");
 
             if (response.isSuccessful( )) {
                 for (int i = 0; i < jokesJSON.length( ); i++) {
-                    JSONObject jokeJSON = jokesJSON.getJSONObject(i);
+                    JSONObject jokeJSON = jokesJSON.getJSONObject(String.valueOf(1));
                     String title = jokeJSON.getString("title");
                     String jokey = jokeJSON.getString("joke");
                     double rating = jokeJSON.getDouble("rating");
