@@ -4,10 +4,12 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.arose.myjokes.R;
 import com.arose.myjokes.adapter.JokesListAdapter;
 import com.arose.myjokes.models.Joke;
 import com.arose.myjokes.services.BestService;
-import com.arose.myrestaurants.R;
+
 
 import java.io.IOException;
 import java.util.ArrayList;

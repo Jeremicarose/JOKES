@@ -11,8 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-
-import com.arose.myrestaurants.R;
+import com.arose.myjokes.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

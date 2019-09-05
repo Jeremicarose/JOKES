@@ -8,8 +8,9 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.arose.myjokes.R;
 import com.arose.myjokes.models.Joke;
-import com.arose.myrestaurants.R;
+
 
 import java.util.ArrayList;
 

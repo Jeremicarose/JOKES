@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.arose.myrestaurants.ui.JokesListActivity"
+    tools:context="com.arose.myjokes.ui.JokesListActivity"
     android:background="#000000">
     ​
 
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="713dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/lost" />
+        android:src="@drawable/jokes" />
     ​
     <TextView
         android:layout_width="wrap_content"
