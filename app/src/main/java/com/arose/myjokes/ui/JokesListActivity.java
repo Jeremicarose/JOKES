@@ -1,70 +1,69 @@
 package com.arose.myjokes.ui;
-import android.content.Intent;
+
+
 import android.os.Bundle;
+
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import com.arose.myjokes.Constants;
 import com.arose.myjokes.R;
-import com.arose.myjokes.adapter.JokesListAdapter;
-import com.arose.myjokes.models.Joke;
-import com.arose.myjokes.services.BestService;
+import com.arose.myjokes.models.JokesResponse;
+import com.arose.myjokes.models.Value;
+import com.arose.myjokes.services.Api;
 
+import java.util.List;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class JokesListActivity extends AppCompatActivity {
-    public static final String TAG = JokesListActivity.class.getSimpleName();
-    @BindView(R.id.recyclerView)
-    RecyclerView mRecyclerView;
-    private JokesListAdapter mAdapter;
 
-    public ArrayList<Joke> jokes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jokes);
-        ButterKnife.bind(this);
+        setContentView(R.layout.jokes_list_item);
+        final ListView listView = findViewById(R.id.listView);
 
-        Intent intent = getIntent();
-        String location = intent.getStringExtra("location");
+        Retrofit retrofit = new Retrofit.Builder( )
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create( ))
+                .build( );
 
-        getJokes(location);
-    }
-
-    private void getJokes(String location) {
-        final BestService bestService = new BestService();
-
-        bestService.findJokes(location, new Callback() {
+        Api api = retrofit.create(Api.class);
+        Call<JokesResponse> call = api.getJokes();
+        call.enqueue(new Callback<JokesResponse>( ) {
             @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
+            public void onResponse(Call<JokesResponse> call, Response<JokesResponse> response) {
+                List<Value> jokes = response.body().getValue();
+                String[] jokesList = new String[jokes.size()];
+
+                for (int i = 0; i < jokes.size( ); i++) {
+                    jokesList[i] = jokes.get(i).getJoke();
+                }
+
+                listView.setAdapter(
+                        new ArrayAdapter<String>(
+                                JokesListActivity.this,
+                                android.R.layout.simple_list_item_1,
+                                jokesList
+
+                        )
+                );
             }
 
             @Override
-            public void onResponse(Call call, Response response) {
-                jokes = bestService.processResults(response);
-
-                JokesListActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mAdapter = new JokesListAdapter(getApplicationContext(), jokes);
-                        mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager =
-                                new LinearLayoutManager(JokesListActivity.this);
-                        mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setHasFixedSize(true);
-                    }
-                });
+            public void onFailure(Call<JokesResponse> call, Throwable t) {
+                Toast.makeText(getApplicationContext( ), t.getMessage( ), Toast.LENGTH_SHORT).show( );
             }
         });
     }
 }
+

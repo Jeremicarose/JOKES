@@ -9,7 +9,7 @@ This app allow user to see, share and post funny jokes
 ## Setup and Installation requirements
 * Go to the projects [repository]
 * Clone the project
-```
+
 
 ## Technologies
   * Android

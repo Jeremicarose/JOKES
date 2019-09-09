@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="713dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/jokes" />
+        android:src="@drawable/jek" />
     ​
     <TextView
         android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
         android:id="@+id/jokeButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         android:textColor="@color/colorTextIcons" />
     <EditText
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@
         android:layout_above="@id/jokeButton"
         android:layout_marginBottom="10dp"
         android:padding="5dp"
-        android:hint="Enter Zip Code"
+        android:hint="Enter Zip joke code"
         android:layout_centerHorizontal="true"/>
     ​
     ​
