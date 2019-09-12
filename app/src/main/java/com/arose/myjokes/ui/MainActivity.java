@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+
 import com.arose.myjokes.R;
 
 import butterknife.BindView;
