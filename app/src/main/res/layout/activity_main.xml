@@ -9,12 +9,10 @@
     android:background="#000000">
     ​
 
-    <ImageView
-        android:id="@+id/imageView"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="713dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/jek" />
+        android:layout_height="match_parent" />
     ​
     <TextView
         android:layout_width="wrap_content"
