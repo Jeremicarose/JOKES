@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "196824820371-msk7tcbbvabua2gn9goi4mq02t4djs7d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arose.myjokes",
+            "certificate_hash": "baffc88fcdd3feac14cd09440f8a898c04fb5259"
+          }
+        },
+        {
           "client_id": "196824820371-d98qr7ntsj4rklcvcb4henovbsc99n5l.apps.googleusercontent.com",
           "client_type": 3
         }
